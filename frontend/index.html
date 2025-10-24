@@ -3,18 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SakhiAI - Women Support Chat</title>
+  <title>SakhiAI - Your Supportive AI Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="chat-container">
-    <h2>💖 SakhiAI</h2>
-    <div id="chatbox" class="chatbox"></div>
-    <div class="input-area">
-      <input type="text" id="userInput" placeholder="Ask anything privately..." />
-      <button onclick="sendMessage()">Send</button>
+    <div class="header">
+      <div class="header-top">
+        <h2>💖 SakhiAI</h2>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark/light theme">
+          🌙
+        </button>
+      </div>
+      <p class="subtitle">Your supportive AI companion for women</p>
     </div>
-    <button id="clearChat" class="clear-btn">Clear Chat</button>
+    
+    <div id="chatbox" class="chatbox">
+      <div class="empty-state">
+        👋 Hi there! I'm SakhiAI, here to support and chat with you. How can I help today?
+      </div>
+      <div class="topic-suggestions" id="topicSuggestions">
+        <p class="suggestions-title">💡 Quick topics to get started:</p>
+        <div class="suggestion-buttons">
+          <button class="suggestion-btn" onclick="sendSuggestion('How can I manage stress better?')">💆‍♀️ Stress Management</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('Tips for work-life balance?')">⚖️ Work-Life Balance</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('How to build confidence?')">💪 Building Confidence</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('Career advice for women?')">🚀 Career Advice</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('Self-care tips for busy women?')">🌸 Self-Care</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('How to set healthy boundaries?')">🛡️ Setting Boundaries</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="typing-indicator" id="typingIndicator">
+      <span>SakhiAI is typing</span>
+      <div class="typing-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Share what's on your mind..." />
+      <button class="send-btn" onclick="sendMessage()">
+        <span>Send</span>
+        <span>✨</span>
+      </button>
+    </div>
+    
+    <button id="clearChat" class="clear-btn">🗑️ Clear Conversation</button>
+    
+    <div class="daily-affirmation" id="dailyAffirmation">
+      <div class="affirmation-content">
+        <span class="affirmation-icon">✨</span>
+        <span class="affirmation-text" id="affirmationText">You are stronger than you think!</span>
+      </div>
+    </div>
+    
+    <div class="privacy-notice">
+      🔒 <strong>Privacy First:</strong> Your conversations are stored only in your browser. No data is sent to external servers except for AI responses.
+    </div>
   </div>
 
   <script src="script.js"></script>
